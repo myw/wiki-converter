@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Wiki-Converter</title>
+    <meta name="description" content="Convert media-wiki files to markdown">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/converter.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="row">
+      <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="page-header">
+        <h1>Wiki Converter</h1>
+      </div>
+      <form action="convert" method="post" accept-charset="utf-8">
+        <div class="form-group">
+            <textarea
+              class="form-control converter-input" name="input_markup" rows="8" cols="40"
+              {% if not input_markup %} placeholder="Enter the MediaWiki markup here"{% endif %}
+            >{{input_markup}}</textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-transfer" aria-hidden="true"> </span>
+            Convert
+          </button>
+        </div>
+        <div class="form-group">
+            <pre class="well converter-output">{{output_markup|default('Converted output appears here')|e}}</pre>
+        </div>
+      </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </body>
+</html>

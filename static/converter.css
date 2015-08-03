@@ -1,0 +1,7 @@
+textarea.converter-input {
+    font-family: monospace;
+}
+
+.well.converter-output {
+    font-family: monospace;
+}
